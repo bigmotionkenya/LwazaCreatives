@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Lwaza Creatives.Ke</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Minimal Classic Theme */
+        :root {
+            --main-bg: #faf9f6;
+            --main-text: #1a1a1a;
+            --accent: #7d5c3b;
+            --border: #e2dfd8;
+            --card-bg: #fff;
+        }
+        html, body {
+            background: var(--main-bg);
+            color: var(--main-text);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 18px;
+            margin: 0; padding: 0;
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar h1 {
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            font-size: 2rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 26px;
+            margin: 0;
+        }
+        .navbar ul li {
+            margin: 0;
+        }
+        .navbar ul li a {
+            color: var(--main-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            font-family: inherit;
+            padding-bottom: 3px;
+            border-bottom: 1.5px solid transparent;
+            transition: color 0.2s, border-bottom 0.2s;
+        }
+        .navbar ul li a:hover, .navbar ul li a.active {
+            color: var(--accent);
+            border-bottom: 1.5px solid var(--accent);
+        }
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 45vh;
+            padding: 90px 20px 50px 20px;
+            text-align: center;
+            background: var(--main-bg);
+        }
+        .hero-section h2 {
+            font-family: 'Georgia', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+        }
+        .hero-section p {
+            max-width: 560px;
+            font-size: 1.13rem;
+            color: var(--main-text);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 22px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 500;
+            margin: 0 8px;
+            transition: background 0.18s, color 0.18s;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #5a4025;
+        }
+        .gallery-section {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 35px 10px 30px 10px;
+        }
+        .gallery-title {
+            text-align: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: center;
+        }
+        .art-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 230px;
+            padding: 15px 15px 10px 15px;
+            text-align: center;
+            transition: box-shadow 0.16s;
+            box-shadow: 0 2px 8px rgba(125, 92, 59, 0.06);
+        }
+        .art-card:hover {
+            box-shadow: 0 6px 16px rgba(125, 92, 59, 0.11);
+            border-color: var(--accent);
+        }
+        .art-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 11px;
+            background: #ecebe8;
+        }
+        .art-title {
+            font-size: 1.06rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 2px;
+            font-family: 'Georgia', serif;
+        }
+        .art-type {
+            color: #725c43;
+            font-size: 0.98rem;
+            margin-bottom: 8px;
+        }
+        .art-desc {
+            font-size: 0.97rem;
+            color: #222;
+            font-family: 'Georgia', serif;
+        }
+        footer {
+            text-align: center;
+            background: var(--card-bg);
+            color: #725c43;
+            padding: 20px 10px 16px 10px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border);
+            margin-top: 0;
+        }
+        @media (max-width: 900px) {
+            .gallery { gap: 14px; }
+            .art-card { width: 88vw; max-width: 340px; }
+        }
+        @media (max-width: 700px) {
+            .navbar { flex-direction: column; padding: 12px 8px; }
+            .navbar ul { gap: 12px; }
+            .hero-section h2 { font-size: 1.6rem; }
+            .gallery-section { padding: 20px 3vw 20px 3vw; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1>Lwaza Creatives</h1>
+        <ul>
+            <li><a href="Lwaza Creatives.html">Home</a></li>
+            <li><a href="About Us.html">Get to know Us</a></li>
+            <li><a href="Creative Agency.html">Creative Agency</a></li>
+            <li><a href="Lwaza Production.html">Lwaza Production</a></li>
+            <li><a href="Big Motion ENT.html">Big Motion ENT</a></li>
+            <li><a href="Handmade.html" class="active">Hand made</a></li>
+            <li><a href="Contact us.html">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h2>Handmade</h2>
+        <p>
+            Handmade is where traditional and handcrafted art lives. From sketches, fashion, pottery, to bespoke artworks—this branch embraces pure creativity made by hand.
+        </p>
+        <a href="Contact us.html" class="btn">Commission an Artwork</a>
+    </section>
+
+    <!-- Handmade Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-title">Gallery</div>
+        <div class="gallery">
+            <div class="art-card">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Hand-drawn Sketch" class="art-img">
+                <div class="art-title">Hand-drawn Sketches</div>
+                <div class="art-type">Sketch Art</div>
+                <div class="art-desc">Original pencil and ink sketches capturing moments, ideas, and imagination in every line.</div>
+            </div>
+            <div class="art-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Bespoke Pottery" class="art-img">
+                <div class="art-title">Bespoke Pottery</div>
+                <div class="art-type">Ceramics</div>
+                <div class="art-desc">Hand-shaped pottery: vases, mugs, and art pieces made with unique glazes and endless creativity.</div>
+            </div>
+            <div class="art-card">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Handmade Fashion" class="art-img">
+                <div class="art-title">Handmade Fashion</div>
+                <div class="art-type">Wearable Art</div>
+                <div class="art-desc">Custom clothing and accessories designed and stitched by hand, blending tradition with style.</div>
+            </div>
+            <div class="art-card">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80" alt="Bespoke Paintings" class="art-img">
+                <div class="art-title">Bespoke Paintings</div>
+                <div class="art-type">Artworks</div>
+                <div class="art-desc">Expressive paintings—each brushstroke tells a story, all crafted by hand on canvas.</div>
+            </div>
+            <div class="art-card">
+                <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3a56?auto=format&fit=crop&w=600&q=80" alt="Handcrafted Decor" class="art-img">
+                <div class="art-title">Handcrafted Decor</div>
+                <div class="art-type">Home & Living</div>
+                <div class="art-desc">Unique wooden, woven, and upcycled decor pieces to bring warmth and character to any space.</div>
+            </div>
+            <div class="art-card">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Personalized Gifts" class="art-img">
+                <div class="art-title">Personalized Gifts</div>
+                <div class="art-type">Custom Orders</div>
+                <div class="art-desc">Gift something special—custom art and crafts made to order for loved ones and special moments.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Handmade at Lwaza Creatives. All rights reserved.</p>
+    </footer>
+</body>
+</html>

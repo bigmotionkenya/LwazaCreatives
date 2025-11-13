@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lwaza Creatives.Ke</title>
+    <style>
+        :root {
+            --netflix-red: #e50914;
+            --netflix-dark: #141414;
+            --netflix-grey: #222;
+            --netflix-light: #fff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background: var(--netflix-dark);
+            color: var(--netflix-light);
+            min-height: 100vh;
+        }
+        .navbar {
+            width: 100%;
+            padding: 18px 40px;
+            background: rgba(20,20,20,0.98);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .navbar h1 {
+            color: var(--netflix-red);
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 18px;
+        }
+        .navbar ul li a {
+            color: var(--netflix-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.08rem;
+            transition: color 0.2s;
+            position: relative;
+            letter-spacing: 1px;
+        }
+        .navbar ul li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--netflix-red);
+            transition: width .3s;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+        }
+        .navbar ul li a:hover, .navbar ul li a.active {
+            color: var(--netflix-red);
+        }
+        .navbar ul li a:hover::after, .navbar ul li a.active::after {
+            width: 100%;
+        }
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+            padding-top: 100px;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .hero-content h2 {
+            font-size: 5rem;
+            font-weight: 9100;
+            margin-bottom: 18px;
+            letter-spacing: 1.5px;
+            color: var(--netflix-light);
+            text-transform: uppercase;
+        }
+        .hero-content p {
+            font-size: 1.15rem;
+            margin-bottom: 28px;
+            line-height: 1.5;
+            color: #f1faee;
+        }
+        .btn {
+            background: var(--netflix-red);
+            color: var(--netflix-light);
+            padding: 14px 36px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 12px rgba(229,9,20,0.12);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            background: #fff;
+            color: var(--netflix-red);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .services {
+            padding: 50px 20px 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .services h2 {
+            text-align: center;
+            color: var(--netflix-red);
+            font-size: 2rem;
+            margin-bottom: 24px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        .service-box {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+        .service {
+            border-radius: 14px;
+            padding: 16px 10px;
+            max-width: 170px;
+            min-width: 120px;
+            color: #fff;
+            text-align: center;
+            transition: transform 0.18s, box-shadow 0.18s;
+            border: 2px solid transparent;
+            position: relative;
+            background: rgba(34,34,34,0.92);
+            box-shadow: 0 4px 14px rgba(229,9,20,0.12);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .service:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 28px rgba(229,9,20,0.19);
+            border: 2px solid var(--netflix-red);
+        }
+        .service-icon {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: var(--netflix-red);
+        }
+        .service h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .service p {
+            font-size: 0.92rem;
+            color: #f1faee;
+        }
+        footer {
+            text-align: center;
+            background: #181818;
+            color: #fff;
+            padding: 30px 10px 20px 10px;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            margin-top: 0;
+        }
+        footer a {
+            color: var(--netflix-red);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        @media (max-width: 900px) {
+            .service-box {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .service {
+                max-width: 45vw;
+                min-width: 100px;
+            }
+        }
+        @media (max-width: 700px) {
+            .service-box {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .service {
+                max-width: 95vw;
+                min-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1>Lwaza Creatives</h1>
+        <ul>
+            <li><a href="Lwaza Creatives.html">Home</a></li>
+            <li><a href="About us.html" class="active">Get to know Us</a></li>
+            <li><a href="Creative Agency.html" class="active">Creative Agency</a></li>
+            <li><a href="Lwaza Production.html">Lwaza Production</a></li>
+            <li><a href="Big Motion ENT.html">Big Motion ENT</a></li>
+            <li><a href="Handmade.html">Hand made</a></li>
+            <li><a href="Contact us.html">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Creative Agency</h2>
+            <p>
+                We bring your ideas to life with bold design, branding, and marketing.<br>
+            </p>
+            <a href="Contact us.html" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Services</h2>
+        <div class="service-box">
+            <a class="service" href="branding.html" title="Branding">
+                <div class="service-icon">🎨</div>
+                <h3>Branding</h3>
+                <p>Unique brands that stand out.</p>
+            </a>
+            <a class="service" href="design.html" title="Design">
+                <div class="service-icon">🖌️</div>
+                <h3>Design</h3>
+                <p>Creative visuals for your business.</p>
+            </a>
+            <a class="service" href="marketing.html" title="Marketing">
+                <div class="service-icon">📈</div>
+                <h3>Marketing</h3>
+                <p>Grow your audience online.</p>
+            </a>
+            <a class="service" href="strategy.html" title="Strategy">
+                <div class="service-icon">💡</div>
+                <h3>Strategy</h3>
+                <p>Smart plans for your brand’s growth.</p>
+            </a>
+            <!-- Creative Items Start -->
+            <a class="service" href="Lwaza Production.html" title="Video Production">
+                <div class="service-icon">🎬</div>
+                <h3>Video Production</h3>
+                <p>Engaging promotional & storytelling videos.</p>
+            </a>
+            <a class="service" href="Lwaza Production.html" title="Photography">
+                <div class="service-icon">📷</div>
+                <h3>Photography</h3>
+                <p>Professional shoots for products & events.</p>
+            </a>
+            <a class="service" href="web-design.html" title="Web Design">
+                <div class="service-icon">🌐</div>
+                <h3>Web Design</h3>
+                <p>Modern, responsive websites & portfolios.</p>
+            </a>
+            <a class="service" href="copywriting.html" title="Copywriting">
+                <div class="service-icon">✏️</div>
+                <h3>Copywriting</h3>
+                <p>Creative content for campaigns & brands.</p>
+            </a>
+            <a class="service" href="Big Motion ENT.html" title="Music Production">
+                <div class="service-icon">🎼</div>
+                <h3>Music Production</h3>
+                <p>Original soundtracks, jingles, & audio branding.</p>
+            </a>
+            <a class="service" href="Big Motion ENT.html" title="Voice Over">
+                <div class="service-icon">🎤</div>
+                <h3>Voice Over</h3>
+                <p>Professional voices for ads & narration.</p>
+            </a>
+            <a class="service" href="creative-campaigns.html" title="Creative Campaigns">
+                <div class="service-icon">🔥</div>
+                <h3>Creative Campaigns</h3>
+                <p>Bold, innovative campaigns that get noticed.</p>
+            </a>
+            <a class="service" href="scriptwriting.html" title="Scriptwriting">
+                <div class="service-icon">📚</div>
+                <h3>Scriptwriting</h3>
+                <p>Scripts for film, radio, podcasts, and ads.</p>
+            </a>
+            <!-- Creative Items End -->
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Creative Agency, part of <a href="Lwaza Creatives.html">Lwaza Creatives</a>. All rights reserved.</p>
+    </footer>
+</body>
+</html>
