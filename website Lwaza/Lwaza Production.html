@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en-US" class="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lwaza Creatives.Ke</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background: #f5f6fa;
+            color: #22223b;
+            min-height: 100vh;
+            animation: fadeIn 1.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .navbar {
+            width: 100%;
+            padding: 18px 40px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .navbar h1 {
+            color: #e63946;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 18px;
+        }
+        .navbar ul li a {
+            color: #22223b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.08rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        .navbar ul li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #e63946;
+            transition: width .3s;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+        }
+        .navbar ul li a:hover, .navbar ul li a.active {
+            color: #e63946;
+        }
+        .navbar ul li a:hover::after, .navbar ul li a.active::after {
+            width: 100%;
+        }
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: brightness(0.7) blur(1px);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(120deg, rgba(34,34,59,0.7) 60%, rgba(230,57,70,0.4));
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #fff;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .hero-content h2 {
+            font-size: 2.7rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1.2px;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        }
+        .hero-content p {
+            font-size: 1.18rem;
+            margin-bottom: 28px;
+            line-height: 1.6;
+            color: #f1faee;
+        }
+        .btn {
+            background: #e63946;
+            color: #fff;
+            padding: 13px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 1.06rem;
+            box-shadow: 0 2px 12px rgba(230,57,70,0.12);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #22223b;
+            color: #e63946;
+            transform: translateY(-2px) scale(1.04);
+        }
+        .section-title {
+            margin: 70px auto 30px auto;
+            text-align: center;
+            font-size: 2rem;
+            color: #e63946;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+        }
+        /* Rotating Cylinder Carousel */
+        .carousel-cylinder-outer {
+            position: relative;
+            perspective: 1800px;
+            width: 650px;
+            height: 370px;
+            margin: 40px auto 35px auto;
+            overflow: visible;
+            z-index: 10;
+            cursor: pointer;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 16px #e6394640, 0 0px 16px #22223b12;
+            border: 2.5px solid #e63946;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-cylinder {
+            width: 100%; height: 100%; position: absolute; top: 0; left: 0;
+            transform-style: preserve-3d;
+            transition: transform 1.15s cubic-bezier(.77,0,.18,1);
+        }
+        .cylinder-item {
+            position: absolute;
+            width: 370px;
+            height: 240px;
+            left: 50%;
+            top: 50%;
+            background: linear-gradient(120deg, #fff 75%, #e6394630 100%);
+            border-radius: 15px;
+            box-shadow: 0 7px 24px #e6394630, 0 2px 8px #22223b13;
+            padding: 26px 22px 22px 22px;
+            margin-left: -185px;
+            margin-top: -120px;
+            text-align: left;
+            opacity: 0.7;
+            filter: blur(1.2px) grayscale(8%);
+            transition: 
+                opacity 0.45s, 
+                filter 0.45s, 
+                box-shadow 0.45s;
+            z-index: 2;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 2px solid #e6394622;
+        }
+        .cylinder-item.active {
+            opacity: 1;
+            filter: blur(0) grayscale(0%);
+            box-shadow: 0 10px 40px #e6394660, 0 4px 20px #22223b23;
+            z-index: 5;
+            pointer-events: auto;
+            border: 2.5px solid #e63946;
+            background: linear-gradient(120deg, #fff 60%, #e63946 100%);
+        }
+        .carousel-title {
+            color: #e63946;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .carousel-desc {
+            font-size: 1.08rem;
+            color: #22223b;
+            margin-bottom: 11px;
+            line-height: 1.5;
+        }
+        .carousel-video {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            flex-grow: 1;
+            margin-top: 7px;
+        }
+        .carousel-video video, 
+        .carousel-video iframe {
+            border-radius: 9px;
+            box-shadow: 0 2px 12px #e6394633;
+            width: 100%;
+            max-width: 240px;
+            height: 120px;
+            background: #eee;
+            border: 2px solid #e63946;
+        }
+        /* Services Section */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 20px auto 50px auto;
+            padding: 10px 10px 0 10px;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(34,34,59,0.07);
+            padding: 32px 28px 26px 28px;
+            flex: 1 1 270px;
+            min-width: 260px;
+            max-width: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.18s, box-shadow 0.18s;
+        }
+        .service-card:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 7px 24px rgba(230,57,70,0.09), 0 2px 8px rgba(34,34,59,0.13);
+        }
+        .service-icon {
+            font-size: 2.4rem;
+            margin-bottom: 18px;
+            color: #e63946;
+        }
+        .service-title {
+            font-size: 1.16rem;
+            font-weight: 700;
+            color: #22223b;
+            margin-bottom: 10px;
+            letter-spacing: 0.7px;
+        }
+        .service-desc {
+            color: #444;
+            font-size: 1.02rem;
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            background: #fff;
+            color: #e63946;
+            padding: 18px 10px 12px 10px;
+            font-size: 1.03rem;
+            letter-spacing: 1px;
+            margin-top: 0;
+            border-top: 1.5px solid #e63946;
+        }
+        @media (max-width: 900px) {
+            .services { gap: 18px; }
+            .carousel-cylinder-outer { width: 99vw; }
+            .cylinder-item { width: 96vw; margin-left: -48vw; }
+            .carousel-video video, .carousel-video iframe { max-width: 85vw; height: 70px; }
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                padding: 12px 8px;
+            }
+            .navbar ul li {
+                margin: 0 8px;
+            }
+            .hero-content h2 {
+                font-size: 1.3rem;
+            }
+            .hero-section {
+                height: 38vh;
+                min-height: 160px;
+                max-height: 300px;
+            }
+            .carousel-cylinder-outer { height: 180px; }
+            .cylinder-item { margin-top: -50px; height: 100px; }
+            .services {
+                flex-direction: column;
+                gap: 12px;
+                padding: 4px;
+            }
+            .service-card {
+                min-width: unset;
+                max-width: unset;
+                width: 100%;
+                padding: 18px 6vw 16px 6vw;
+            }
+            .section-title {
+                font-size: 1.3rem;
+                margin-top: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1>Lwaza Creatives</h1>
+        <ul>
+            <li><a href="Lwaza Creatives.html">Home</a></li>
+            <li><a href="About Us.html">Get to know Us</a></li>
+            <li><a href="Creative Agency.html">Creative Agency</a></li>
+            <li><a href="Lwaza Production.html" class="active">Lwaza Production</a></li>
+            <li><a href="Big Motion ENT.html">Big Motion ENT</a></li>
+            <li><a href="Handmade.html">Hand made</a></li>
+            <li><a href="Contact us.html">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="Untitled-ig.png" alt="Lwaza Production Background" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Lwaza Production</h2>
+            <p>
+                Turning creative visions into reality with film, music, and media production. Explore our services to see how we empower Africa’s next wave of storytellers.
+            </p>
+            <a href="Contact us.html" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Rotating Cylinder Carousel -->
+    <div class="section-title">Featured Production Highlights</div>
+    <section class="carousel-cylinder-outer" id="cylinder-carousel">
+        <div class="carousel-cylinder">
+            <div class="cylinder-item">
+                <div class="carousel-title">Film & Video Production</div>
+                <div class="carousel-desc">Creative development, direction, and post-production for documentaries, shorts, and branded films.</div>
+                <div class="carousel-video">
+                    <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Film Production Demo" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="cylinder-item">
+                <div class="carousel-title">Music Videos</div>
+                <div class="carousel-desc">Vibrant music video direction and editing for artists and labels.</div>
+                <div class="carousel-video">
+                    <video controls poster="video-thumb2.jpg">
+                        <source src="sample-musicvideo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="cylinder-item">
+                <div class="carousel-title">Commercials & Branded Content</div>
+                <div class="carousel-desc">Unique adverts and digital campaigns for brands and platforms.</div>
+                <div class="carousel-video">
+                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Commercials Demo" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="cylinder-item">
+                <div class="carousel-title">Event Coverage</div>
+                <div class="carousel-desc">Multi-camera coverage for concerts, festivals, and special occasions.</div>
+                <div class="carousel-video">
+                    <video controls poster="video-thumb4.jpg">
+                        <source src="sample-documentary.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="cylinder-item">
+                <div class="carousel-title">Documentaries</div>
+                <div class="carousel-desc">Cinematic storytelling to inspire, inform, and move audiences.</div>
+                <div class="carousel-video">
+                    <iframe src="https://www.youtube.com/embed/J---aiyznGQ" title="Documentary Demo" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="cylinder-item">
+                <div class="carousel-title">Corporate & Social Content</div>
+                <div class="carousel-desc">Company profiles, promos, and social reels tailored to your brand.</div>
+                <div class="carousel-video">
+                    <video controls poster="video-thumb6.jpg">
+                        <source src="sample-corporate.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-title">Our Production Services</div>
+    <section class="services">
+        <div class="service-card">
+            <div class="service-icon">🎬</div>
+            <div class="service-title">Film & Video Production</div>
+            <div class="service-desc">Creative development, direction, and post-production for documentaries, shorts, and branded films.</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎵</div>
+            <div class="service-title">Music Videos</div>
+            <div class="service-desc">Vibrant music video direction and editing for artists and labels.</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">📺</div>
+            <div class="service-title">Commercials & Branded Content</div>
+            <div class="service-desc">Unique adverts and digital campaigns for brands and platforms.</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎤</div>
+            <div class="service-title">Event Coverage</div>
+            <div class="service-desc">Multi-camera coverage for concerts, festivals, and special occasions.</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🌍</div>
+            <div class="service-title">Documentaries</div>
+            <div class="service-desc">Cinematic storytelling to inspire, inform, and move audiences.</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">💡</div>
+            <div class="service-title">Corporate & Social Content</div>
+            <div class="service-desc">Company profiles, promos, and social reels tailored to your brand.</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lwaza Production. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // Rotating Cylinder Carousel Script - with wider spacing and slower speed
+    (function() {
+        const outer = document.getElementById('cylinder-carousel');
+        const carousel = outer.querySelector('.carousel-cylinder');
+        const items = carousel.querySelectorAll('.cylinder-item');
+        const N = items.length;
+        let curr = 0;
+        const deg = 360 / N;
+        let radiusDesktop = 340; // wider spacing for visibility
+        let radiusMobile = 120;
+        let animationFrame;
+        let lastTimestamp = null;
+        let rotation = 0;
+        const autoSpeed = 0.012; // slightly slower
+
+        function getRadius() {
+            return window.innerWidth < 700 ? radiusMobile : radiusDesktop;
+        }
+        function positionItems() {
+            let r = getRadius();
+            for (let i = 0; i < N; ++i) {
+                items[i].style.width = "370px";
+                items[i].style.height = "240px";
+                items[i].style.transform = `rotateY(${i * deg}deg) translateZ(${r}px)`;
+                items[i].classList.toggle('active', i === curr);
+            }
+        }
+        function rotateCylinderToIndex(index) {
+            rotation = -index * deg;
+            carousel.style.transition = "transform 1.15s cubic-bezier(.77,0,.18,1)";
+            carousel.style.transform = `rotateY(${rotation}deg)`;
+            for (let i = 0; i < N; ++i) {
+                items[i].classList.toggle('active', i === index);
+            }
+        }
+        function updateCarousel() {
+            positionItems();
+            rotateCylinderToIndex(curr);
+        }
+        function animateCylinder(timestamp) {
+            if (!lastTimestamp) lastTimestamp = timestamp;
+            const delta = timestamp - lastTimestamp;
+            lastTimestamp = timestamp;
+            rotation -= autoSpeed * delta;
+            carousel.style.transition = "transform 0s";
+            carousel.style.transform = `rotateY(${rotation}deg)`;
+            let index = Math.round(-rotation / deg) % N;
+            if (index < 0) index += N;
+            if (curr !== index) {
+                for (let i = 0; i < N; ++i) {
+                    items[i].classList.toggle('active', i === index);
+                }
+                curr = index;
+            }
+            animationFrame = requestAnimationFrame(animateCylinder);
+        }
+        function startAutoRotate() {
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+            lastTimestamp = null;
+            animationFrame = requestAnimationFrame(animateCylinder);
+        }
+        function stopAutoRotate() {
+            if (animationFrame) cancelAnimationFrame(animationFrame);
+        }
+        outer.addEventListener('click', function(e) {
+            if (
+                e.target.tagName === "A" ||
+                e.target.tagName === "VIDEO" ||
+                e.target.tagName === "IFRAME" ||
+                e.target.closest('a') ||
+                e.target.closest('video') ||
+                e.target.closest('iframe')
+            ) return;
+            stopAutoRotate();
+            curr = (curr + 1) % N;
+            rotateCylinderToIndex(curr);
+            setTimeout(() => {
+                rotation = -curr * deg;
+                startAutoRotate();
+            }, 1200);
+        });
+
+        updateCarousel();
+        startAutoRotate();
+        window.addEventListener('resize', updateCarousel);
+        outer.addEventListener('mouseenter', stopAutoRotate);
+        outer.addEventListener('mouseleave', startAutoRotate);
+    })();
+    </script>
+</body>
+</html>
