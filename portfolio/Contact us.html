@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="html" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Lwaza Creatives</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background: #f5f6fa;
+            color: #22223b;
+            min-height: 100vh;
+            animation: fadeIn 1.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .navbar {
+            width: 100%;
+            padding: 18px 40px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .navbar h1 {
+            color: #e63946;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 18px;
+        }
+        .navbar ul li a {
+            color: #22223b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.08rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        .navbar ul li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #e63946;
+            transition: width .3s;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+        }
+        .navbar ul li a:hover, .navbar ul li a.active {
+            color: #e63946;
+        }
+        .navbar ul li a:hover::after, .navbar ul li a.active::after {
+            width: 100%;
+        }
+        /* Contact Section */
+        .contact-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+            background: #f5f6fa;
+        }
+        .contact-box {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(34,34,59,0.08);
+            padding: 40px 38px 32px 38px;
+            max-width: 440px;
+            width: 100%;
+            margin: 40px 0 60px 0;
+            text-align: center;
+        }
+        .contact-box h2 {
+            color: #e63946;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+            letter-spacing: 1.2px;
+        }
+        .contact-info {
+            margin-bottom: 16px;
+            color: #22223b;
+            font-size: 1.07rem;
+            font-weight: 500;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .form-group {
+            text-align: left;
+        }
+        label {
+            color: #22223b;
+            font-size: 1.01em;
+            font-weight: 500;
+            margin-bottom: 4px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            border: 1.5px solid #e63946;
+            border-radius: 7px;
+            background: #f5f6fa;
+            color: #22223b;
+            font-size: 1em;
+            padding: 10px;
+            font-family: inherit;
+            transition: border 0.2s, background 0.2s;
+            resize: none;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border: 1.5px solid #22223b;
+            background: #fff;
+        }
+        textarea {
+            min-height: 80px;
+        }
+        .btn {
+            background: #e63946;
+            color: #fff;
+            padding: 13px 0;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            font-size: 1.07rem;
+            box-shadow: 0 2px 12px rgba(230,57,70,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .btn:hover {
+            background: #22223b;
+            color: #e63946;
+            transform: translateY(-2px) scale(1.04);
+        }
+        .success-message {
+            display: none;
+            color: #fff;
+            background: #e63946;
+            border-radius: 9px;
+            padding: 14px 18px;
+            margin-top: 18px;
+            font-weight: 700;
+            animation: fadeIn 0.6s;
+            box-shadow: 0 2px 14px #e6394633;
+            font-size: 1.05em;
+        }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                padding: 12px 8px;
+            }
+            .navbar ul li {
+                margin: 0 8px;
+            }
+            .contact-box {
+                padding: 20px 7vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1>Lwaza Creatives</h1>
+        <ul>
+            <li><a href="Lwaza Creatives.html">Home</a></li>
+            <li><a href="About Us.html">Get to know Us</a></li>
+            <li><a href="Creative Agency.html">Creative Agency</a></li>
+            <li><a href="Lwaza Production.html">Lwaza Production</a></li>
+            <li><a href="Big Motion ENT.html">Big Motion ENT</a></li>
+            <li><a href="Contact us.html" class="active">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-box">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div>Email: bigmotionkenya@gmail.com</div>
+                <div>Phone: +254798762736</div>
+            </div>
+            <form id="contactForm" autocomplete="off">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required placeholder="Type your message"></textarea>
+                </div>
+                <button type="submit" class="btn" id="sendBtn">Send Message</button>
+            </form>
+            <div class="success-message" id="successMessage">
+                Thank you for contacting us, <span id="userName"></span>!<br>
+                We'll get back to you soon.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lwaza Creatives. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Interactive form handler
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('successMessage');
+        const sendBtn = document.getElementById('sendBtn');
+        const userName = document.getElementById('userName');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            sendBtn.disabled = true;
+            sendBtn.textContent = "Sending...";
+            setTimeout(() => {
+                let nameValue = document.getElementById('name').value;
+                userName.textContent = nameValue ? nameValue : "Friend";
+                success.style.display = "block";
+                form.style.display = "none";
+            }, 800);
+        });
+    </script>
+</body>
+</html>
